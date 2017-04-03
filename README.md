@@ -1,7 +1,6 @@
-# Notes de mon cours d'Economie Computationnelle Appliquee
+# Notes du cours Applied Computational Economics, donne en MA Economics a l'universite McGill (Montreal, CA)
 
-Ces notes s'adressent a des etudiants en ingenierie financiere, finance mathematique et computationnelle, sciences economiques
-
+Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etudiants en ingenierie financiere, finance mathematique et computationnelle.
 
 ## Système d’équations linéaire : Ax = b
 ### Méthodes directes
@@ -10,7 +9,6 @@ Décomposition LU, Cholesky ` x = A\b `
 ### Méthode itérative (forme Qx = b + (Q − A)x)
 
 Gauss-jacobi : `gjacobi (A,b)`
-  
 Gauss-seidel : `gseidel (A,b)`
 
 ## Systèmes d’équations non linéaires : Points fixes, Solutions racines
