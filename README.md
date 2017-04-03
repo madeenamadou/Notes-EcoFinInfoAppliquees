@@ -1,4 +1,7 @@
-# Méthodes numeriques avec MATLAB - Notes de cours
+# Notes de mon cours d'Economie Computationnelle Appliquee
+
+Ces notes s'adressent a des etudiants en ingenierie financiere, finance mathematique et computationnelle, sciences economiques
+
 
 ## Système d’équations linéaire : Ax = b
 ### Méthodes directes
