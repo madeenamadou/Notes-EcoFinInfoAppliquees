@@ -163,6 +163,29 @@ Pour une bonne approximation, il faut que :
 
 ![](pic/maths/ivp1.png)
 
+On choisit a_2 puis on trouve ensuite les autres paramètres. Il existe trois méthodes communes pour évaluer les paramètres inconnus, connus comme: méthode de Heun, la méthode du point milieu et la méthode de Ralston.
+
+**Heun’s Method** : (a_2,a_1,p_1,q_1) = (1/2,1/2,1,1)
+
+**Midpoint’s Method** : (a_2,a_1,p_1,q_1) = (1,0,1/2,1/2)
+
+**Ralston’s Method** : (a_2,a_1,p_1,q_1) = (2/3,1/3,3/4,3/4)
+
+**Paul L. Fackler & Mario J. Miranda** : (a_2,a_1,p_1,q_1) = (3/4,1/4,2/3,2/3)
+
+**Méthode Runge-Kutta 4** : y(x+h) = y(x)+1/6 [F_1+2(F_2+F_3 )+ F_4]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
