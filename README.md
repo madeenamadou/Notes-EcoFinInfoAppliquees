@@ -78,9 +78,9 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 ## Méthode d’intégration et de différentiation
 ### Méthode d’intégration
-* Calcul de l'aire
-	**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
-
+- Calcul de l'aire
+	* **Méthodes Newton-cotes** : calcul de l’aire sous la fonction
+	
 	Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
 	
 	Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
@@ -93,22 +93,22 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 	```
 	>Si *w(x)=1*, on calcule l’aire sous la fonction
 	
-	**Méthodes Gaussian quadrature**
+	* **Méthodes Gaussian quadrature**
 	
 	Legendre quadrature, pour w(x) = 1
 	```Matlab
 	[x,w] = qnwlege(n,a,b)
 	```
 
-* Calcul de l’espérance
-* Méthodes Gaussian quadrature
+- Calcul de l’espérance
+	* **Méthodes Gaussian quadrature**
 	Pour x suivant une **loi normale (mu, var)**, *n* les nodes gaussiens et *w* les weights gaussiens,
 	```Matlab
 	[x,w] = qnwnorm(n,mu, var)
 	```
 	>Si w(x) = *fonction de densité de probabilité* de *x*, on calcule l’espérance de la fonction par `Somme(w*f(x))`
 
-* Méthodes Intégration Monte-Carlo
+	* **Méthodes Intégration Monte-Carlo**
 	Il faut générer pseudoaléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
 
 	L’espérance de *f* est obtenue par
@@ -116,7 +116,7 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 	Somme(w*f(x))
 	```
 
-* Méthodes Quasi-Monte Carlo
+	* **Méthodes Quasi-Monte Carlo**
 	Ici les *n* nodes *x* sont déterministes, sur une intervalle [a,b] ;  les weights *w=(b-a)/n* étant identiques
 	
 	L’espérance de *f* est obtenue par
