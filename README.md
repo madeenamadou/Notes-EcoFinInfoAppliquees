@@ -204,8 +204,10 @@ e.g: ici, on doit chercher la solution racine pour la fonction «shooting» avec
 On crée d'abord une fonction de «shooting»
 
 >Function F = shooting (y0)
-[t,y] = ode45('system',[t0,tf],y0);
-F = y(end) - y_end;
+
+>[t,y] = ode45('system',[t0,tf],y0);
+
+>F = y(end) - y_end;
 
 ```Matlab
 y0 = broyden('shooting',guess);
