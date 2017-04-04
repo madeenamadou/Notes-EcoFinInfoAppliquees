@@ -176,7 +176,8 @@ On choisit a_2 puis on trouve ensuite les autres paramètres. Il existe trois m�
 **Méthode Runge-Kutta 4** : ![](pic/maths/ivp2.gif)
 
 >Avec
-![](pic/maths/ivp3.gif)
+>
+>![](pic/maths/ivp3.gif)
 
 Pour un système d’équation différentiel « system », une période allant de t0 à tf, des valeurs initiales stockées dans la matrice «inits», la résolution numérique avec Runge-Kutta 4 :
 
