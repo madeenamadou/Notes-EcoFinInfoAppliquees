@@ -31,7 +31,7 @@ newton('f',[x1;x2])
 ### Méthode Quasi-Newton : utilise une approximation du jacobien
 - Secant Method : une variable
 	
-	* Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
+	Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
  	Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden(’f’,[x1;x2])`
     
  	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
@@ -158,6 +158,8 @@ Le principe de résolution est de dériver une approximation de taylor de  à l�
 >Méthode de Euler : *y(t+h) = y(t) + y'(t)h*
 
 >Méthode Runge-Kutta 2 : *y(t+h) = y(t) + h[a_1k_1 + a_2k_2]*
+
+Pour une bonne approximation, il faut que :
 
 
 
