@@ -32,7 +32,7 @@ newton('f',[x1;x2])
 - Secant Method : une variable
 	
 	Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
- 	Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden(’f’,[x1;x2])`
+ 	Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden('f',[x1;x2])`
     
  	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
@@ -71,7 +71,7 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 - Méthode Algorithm Nelder-Mead : plusieurs variables, avec des valeurs initiales pour les variables
 	Pour une fonction f à deux variables, avec les valeurs initiales x1 et x2, 
  	```Matlab
-	neldmead(’f’,[x1;x2])
+	neldmead('f',[x1;x2])
 	```
 
 ## Méthode d’intégration et de différentiation
