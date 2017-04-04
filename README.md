@@ -161,6 +161,7 @@ Le principe de résolution est de dériver une approximation de taylor de  à l�
 
 Pour une bonne approximation, il faut que :
 
+![](pic/maths/ivp1.png)
 
 
 
