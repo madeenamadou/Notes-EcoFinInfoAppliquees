@@ -33,8 +33,8 @@ newton('f',[x1;x2])
 	
 	Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
  	Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden('f',[x1;x2])`
-    
- 	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
+	
+	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
 ### Méthodes exclusives pour Point-fixes
 Méthode Itération de fonction, pour une valeur initiale x0
@@ -146,7 +146,7 @@ b + cλ = 1/h
 b + cλ2 = 0
 ```
 
-## Initial value problem (IVP)
+## Initial Value Problem (IVP)
 Prend la forme d’une equation différentielle à résoudre pour une function solution, connaissant les valeurs initiales pour la fonction.
 
 >e.g. à l’ordre 1  *y'(t) = f(t,y(t))*
