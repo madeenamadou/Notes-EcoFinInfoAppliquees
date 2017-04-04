@@ -134,8 +134,7 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
  
 ### Méthode de différentiation
 Pour une fonction *f*, une approximation *O(h²)* de sa dérivée, autour du point *x0*, est de la forme:
->*f’(x0) = a*f(x0) + b*f(x0 + h) + c*f(x0 + alpha*h) [ + O(h²)]*
- 
+>*f'(x0) = a*f(x0) + b*f(x0 + h) + c*f(x0 + alpha*h) [ + O(h²)]*
 >où (x0 + h), (x0 + alpha*h) sont deux autres points,
 >choisir, alpha = 2, et choisir h quelconque, les paramètres a, b et c, s’obtiennent en résolvant le système suivant :
 ```
