@@ -108,35 +108,38 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 	**Méthodes Gaussian quadrature**
 	
-		Pour x suivant une **loi normale (mu, var)**, *n* les nodes gaussiens et *w* les weights gaussiens,
-		```Matlab
-		[x,w] = qnwnorm(n,mu, var)
-		```
-		>Si w(x) = *fonction de densité de probabilité* de *x*, on calcule l’espérance de la fonction par `Somme(w*f(x))`
+	Pour x suivant une **loi normale (mu, var)**, *n* les nodes gaussiens et *w* les weights gaussiens,
+	```Matlab
+	[x,w] = qnwnorm(n,mu, var)
+	```
+	>Si w(x) = *fonction de densité de probabilité* de *x*, on calcule l’espérance de la fonction par `Somme(w*f(x))`
 
 	**Méthodes Intégration Monte-Carlo**
 	
-		Il faut générer pseudoaléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
-
-		L’espérance de *f* est obtenue par
-		```Matlab
-		Somme(w*f(x))
-		```
+	Il faut générer pseudoaléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
+	
+	L’espérance de *f* est obtenue par
+	```Matlab
+	Somme(w*f(x))
+	```
 
 	**Méthodes Quasi-Monte Carlo**
 	
-		Ici les *n* nodes *x* sont déterministes, sur une intervalle [a,b] ;  les weights *w=(b-a)/n* étant identiques
-
-		L’espérance de *f* est obtenue par
-		```Matlab
-		Somme(w*f(x))
-		```
+	Ici les *n* nodes *x* sont déterministes, sur une intervalle [a,b] ;  les weights *w=(b-a)/n* étant identiques
+	
+	L’espérance de *f* est obtenue par
+	```Matlab
+	Somme(w*f(x))
+	```
  
 ### Méthode de différentiation
+
 Pour une fonction *f*, une approximation *O(h²)* de sa dérivée, autour du point *x0*, est de la forme:
 >*f'(x0) = a*f(x0) + b*f(x0 + h) + c*f(x0 + alpha*h) [ + O(h²)]*
+
 >où (x0 + h), (x0 + alpha*h) sont deux autres points,
 >choisir, alpha = 2, et choisir h quelconque, les paramètres a, b et c, s’obtiennent en résolvant le système suivant :
+
 ```
 a + b + c = 0
 b + cλ = 1/h
