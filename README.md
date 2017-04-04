@@ -10,7 +10,10 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 - Méthode itérative (forme Qx = b + (Q − A)x)
 
-	Gauss-jacobi : ```matlab gjacobi (A,b)```
+	Gauss-jacobi : 
+	```matlab 
+	gjacobi (A,b)
+	```
 
 	Gauss-seidel : `gseidel (A,b)`
 
