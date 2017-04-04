@@ -160,9 +160,8 @@ Le principe de résolution est de dériver une approximation de taylor de  à l�
 >Méthode Runge-Kutta 2 : *y(t+h) = y(t) + h[a_1k_1 + a_2k_2]*
 
 Pour une bonne approximation, il faut que :
-\begin{equation}
-a + b
-\end{equation}
+
+
 
 
 
