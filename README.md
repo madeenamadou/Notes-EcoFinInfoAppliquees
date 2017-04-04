@@ -204,9 +204,9 @@ e.g: ici, on doit chercher la solution racine pour la fonction «shooting» avec
 On crée d'abord une fonction de «shooting»
 
 >Function F = shooting (y0)
-
+>
 >[t,y] = ode45('system',[t0,tf],y0);
-
+>
 >F = y(end) - y_end;
 
 ```Matlab
@@ -215,7 +215,25 @@ y0 = broyden('shooting',guess);
 
 ## Interpolation
 
-Il s’agit d’obtenir une approximation 
+Il s’agit d’obtenir une approximation ![](pic/maths/int1.gif) aussi correcte que possible d’une fonction f.
+
+Pour un ensemble de _n_ interpolation nodes (x_i,f(x_i)), on veut que : ![](pic/maths/int1.gif)
+
+De façon générale, ![](pic/maths/int1.gif) est construit à partir d’une combinaisons linéaires de plusieurs fonctions connues _ϕ_. Pour _m_ degrés d’interpolation (_m_ fonctions ϕ_j_), on a :
+
+![](pic/maths/int3.gif)
+
+Les c_j sont inconnues et pour les obtenir, on résous simultanément les équations linéaires suivantes :
+
+Pour _i = 1...n_,
+
+![](pic/maths/int4.gif)
+
+Les méthodes d’interpolations diffèrent dans le choix des fonctions ϕ. Les ϕ_j_ sont généralement des polynômes.
+
+
+
+
 
 
 
