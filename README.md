@@ -78,24 +78,22 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 ### Méthode d’intégration et de différentiation
 - Méthode d’intégration
-
-	#### Calcul de l'aire
+	* Calcul de l'aire
 		**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
-			Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
- 
-			Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
-			```Matlab
-			[x,w] = qnwtrap(n,a,b)
-			```
- 
-			Simpson rule : pour les fonctions plus lisses
-			```Matlab
-			[x,w] = qnwsimp(n,a,b)
-			```
+		Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
+		
+		Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
+		```Matlab
+		[x,w] = qnwtrap(n,a,b)
+		```
+		
+		Simpson rule : pour les fonctions plus lisses
+		```Matlab
+		[x,w] = qnwsimp(n,a,b)
+		```
+		>Si *w(x)=1*, on calcule l’aire sous la fonction
 
-			>Si *w(x)=1*, on calcule l’aire sous la fonction
-
-		**Méthodes Gaussian quadrature**
+		/* Méthodes Gaussian quadrature**
 		Legendre quadrature, pour w(x) = 1 
 		```Matlab
 		[x,w] = qnwlege(n,a,b)
