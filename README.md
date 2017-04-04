@@ -177,7 +177,10 @@ On choisit a_2 puis on trouve ensuite les autres param√®tres. Il existe trois m√
 
 
 
-
+```math 
+#yourmathlabel
+a + b = c
+```
 
 
 
