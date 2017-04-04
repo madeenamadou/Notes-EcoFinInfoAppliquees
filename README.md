@@ -3,41 +3,27 @@
 Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etudiants en ingenierie financiere, finance mathematique et computationnelle.
 
 
-## Système d’équations linéaire : Ax = b
+### Système d’équations linéaire : Ax = b
 - Méthodes directes
 
 	Décomposition LU, Cholesky ` x = A\b `
 
 - Méthode itérative (forme Qx = b + (Q − A)x)
 
-	Gauss-jacobi : 
-	```matlab 
-	gjacobi (A,b)
-	```
+	Gauss-jacobi : `gjacobi (A,b)`
 
 	Gauss-seidel : `gseidel (A,b)`
 
-## Système d’équations linéaire : Ax = b
-### Méthodes directes
-
-Décomposition LU, Cholesky ` x = A\b `
-    
-### Méthode itérative (forme Qx = b + (Q − A)x)
-
-Gauss-jacobi : `gjacobi (A,b)`
-
-Gauss-seidel : `gseidel (A,b)`
-
-## Systèmes d’équations non linéaires : Points fixes, Solutions racines
-### Méthode bisection, sur un interval [a,b]
+### Systèmes d’équations non linéaires : Points fixes, Solutions racines
+- Méthode bisection, sur un interval [a,b]
 
 Pour une fonction f, `bisect (‘f’,a,b)`
 
-### Méthode Newton : un ou plusieurs variables, avec des valeurs initiales , utilise le jacobien
+- Méthode Newton : un ou plusieurs variables, avec des valeurs initiales , utilise le jacobien
 
 Pour une fonction f à 2 variables, avec des valeurs initiales respectives x1 et x2 `newton(’f’,[x1;x2])`
 
-### Méthode Quasi-Newton : utilise une approximation du jacobien
+- Méthode Quasi-Newton : utilise une approximation du jacobien
 
  * Secant Method : une variable
 
@@ -46,19 +32,15 @@ Pour une fonction f à 2 variables, avec des valeurs initiales respectives x1 et
     
  >**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
-### Méthodes exclusives pour Point-fixes
+- Méthodes exclusives pour Point-fixes
  * Méthode Itération de fonction, pour une valeur initiale x0
- Pour une fonction g, 
- 
- `fixpoint(’g’,x0)`
+ Pour une fonction g, `fixpoint(’g’,x0)`
 
  * Complementary Method : utilise le jacobien
  Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
  * Méthode semismooth
- Pour une fonction f, un intervalle [a,b], et une valeur initiale x0, 
- 
- `ncpsolve(’f’,a,b,x)`
+ Pour une fonction f, un intervalle [a,b], et une valeur initiale x0, `ncpsolve(’f’,a,b,x)`
  
  * Méthode minmax
  Spécifier d’abord l'option 'type' 
