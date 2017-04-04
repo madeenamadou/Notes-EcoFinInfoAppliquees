@@ -176,7 +176,6 @@ On choisit a_2 puis on trouve ensuite les autres paramètres. Il existe trois m�
 **Méthode Runge-Kutta 4** : ![](pic/maths/ivp2.gif)
 
 >Avec
-
 ![](pic/maths/ivp3.gif)
 
 Pour un système d’équation différentiel « system », une période allant de t0 à tf, des valeurs initiales stockées dans la matrice «inits», la résolution numérique avec Runge-Kutta 4 :
@@ -191,7 +190,32 @@ Pour un système d’équation différentiel « system », une période allant
 sol1 := numeric::odesolve2(f, t0, Y0, RK4, Stepsize=h)
 ```
 
-## Boundary Value Problem 
+## Boundary Value Problem
+Il s’agit d’un boundary value problem quand on ne connait pas les valeurs initiales, pour la fonction. Il est souvent donné une boundary condition, comme par exemple la valeur terminale pour la fonction y_T.
+
+On cherche le guess y_0 pour la valeur initiale pour la fonction tel que :
+
+![](pic/maths/bvp1.gif)
+
+On réécrit ce problème sous la forme d’un problème de recherche de solution racine, à résoudre avec **broyden**. Quand on trouve on peut résoudre l’IVP.
+
+e.g: ici, on doit chercher la solution racine pour la fonction «shooting» avec **broyden**.
+
+On crée d'abord une fonction de «shooting»
+
+>Function F = shooting (y0)
+[t,y] = ode45('system',[t0,tf],y0);
+F = y(end) - y_end;
+
+```Matlab
+y0 = broyden('shooting',guess);
+```
+
+## Interpolation
+
+Il s’agit d’obtenir une approximation 
+
+
 
 
 
