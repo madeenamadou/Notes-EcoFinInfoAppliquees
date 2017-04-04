@@ -24,10 +24,10 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 - Méthode Newton : un ou plusieurs variables, avec des valeurs initiales, utilise le jacobien
 
-Pour une fonction f à 2 variables, avec des valeurs initiales respectives x1 et x2 
-```Matlab
-newton('f',[x1;x2])
-```
+	Pour une fonction f à 2 variables, avec des valeurs initiales respectives x1 et x2 
+	```Matlab
+	newton('f',[x1;x2])
+	```
 
 - Méthode Quasi-Newton : utilise une approximation du jacobien
 
@@ -39,6 +39,7 @@ newton('f',[x1;x2])
  >**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
 - Méthodes exclusives pour Point-fixes
+	
 	Méthode Itération de fonction, pour une valeur initiale x0
 	
 	Pour une fonction g, 
@@ -46,8 +47,8 @@ newton('f',[x1;x2])
 	fixpoint('g',x0)
 	```
 
- * Complementary Method : utilise le jacobien
- Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
+- Complementary Method : utilise le jacobien
+Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
  * Méthode semismooth
  Pour une fonction f, un intervalle [a,b], et une valeur initiale x0, 
