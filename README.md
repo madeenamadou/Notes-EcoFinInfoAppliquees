@@ -65,14 +65,14 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 - Method Golden Search : une variable, optimum local sur un interval [a,b]
 	
 	Pour une fonction f, sur un interval [a,b]
- 	```Matlab
- 	golden('f',a,b)
- 	```
+	```Matlab
+	golden('f',a,b)
+	```
 
 - Méthode Algorithm Nelder-Mead : plusieurs variables, avec des valeurs initiales pour les variables
 	
-	Pour une fonction f à deux variables, avec les valeurs initiales x1 et x2, 
- 	```Matlab
+	Pour une fonction f à deux variables, avec les valeurs initiales x1 et x2,
+	```Matlab
 	neldmead('f',[x1;x2])
 	```
 
