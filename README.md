@@ -76,11 +76,11 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 	neldmead(’f’,[x1;x2])
 	```
 
-### Méthode d’intégration et de différentiation
-#### Méthode d’intégration
-* Calcul de l'aire
+## Méthode d’intégration et de différentiation
+### Méthode d’intégration
+#### Calcul de l'aire
 	**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
-	
+
 	Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
 	
 	Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
