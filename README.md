@@ -77,8 +77,10 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 	```
 
 ### Méthode d’intégration et de différentiation
-- Méthode d’intégration
+#### Méthode d’intégration
 	* Calcul de l'aire
+	
+	
 		**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
 		Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
 		
