@@ -65,7 +65,6 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 ### Problèmes d’optimisation (recherche du maximum et du minimum)
 - Méthodes sans dérivées :
 	* Method Golden Search : une variable, optimum local sur un interval [a,b]
-	
 	Pour une fonction f, sur un interval [a,b]
  	```Matlab
  	golden('f',a,b)
@@ -80,46 +79,51 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 ### Méthode d’intégration et de différentiation
 - Méthode d’intégration
 
-	* Calcul de l'aire
+	#### Calcul de l'aire
 		**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
-		**Trapezoid rule :** pour les fonctions discontinues ayant des points d’inflexion
+			Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
  
- 		Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
- 		```Matlab
-		[x,w] = qnwtrap(n,a,b)
-		```
+			Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
+			```Matlab
+			[x,w] = qnwtrap(n,a,b)
+			```
  
-		**Simpson rule :** pour les fonctions plus lisses
-		```Matlab
-		[x,w] = qnwsimp(n,a,b)
-		```
- 
-		>Si *w(x)=1*, on calcule l’aire sous la fonction
+			Simpson rule : pour les fonctions plus lisses
+			```Matlab
+			[x,w] = qnwsimp(n,a,b)
+			```
 
-		Méthodes Gaussian quadrature
-  	Legendre quadrature, pour w(x) = 1 
+			>Si *w(x)=1*, on calcule l’aire sous la fonction
 
+		**Méthodes Gaussian quadrature**
+		Legendre quadrature, pour w(x) = 1 
 		```Matlab
 		[x,w] = qnwlege(n,a,b)
 		```
 
-#### Calcul de l’espérance
-* Méthodes Gaussian quadrature
- Pour x suivant une **loi normale (mu, var)**, *n* les nodes gaussiens et *w* les weights gaussiens,
- 
- `[x,w] = qnwnorm(n,mu, var)`
- 
- >Si w(x) = *fonction de densité de probabilité* de *x*, on calcule l’espérance de la fonction par `Somme(w*f(x))`
+	#### Calcul de l’espérance
+		**Méthodes Gaussian quadrature**
+		Pour x suivant une **loi normale (mu, var)**, *n* les nodes gaussiens et *w* les weights gaussiens,
+		```Matlab
+		[x,w] = qnwnorm(n,mu, var)
+		```
+		>Si w(x) = *fonction de densité de probabilité* de *x*, on calcule l’espérance de la fonction par `Somme(w*f(x))`
 
-* Méthodes Intégration Monte-Carlo
- Il faut générer pseudoaléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
+	**Méthodes Intégration Monte-Carlo**
+	Il faut générer pseudoaléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
 
- L’espérance de *f* est obtenue par `Somme(w*f(x))`
+	L’espérance de *f* est obtenue par
+	```Matlab
+	Somme(w*f(x))
+	```
 
-* Méthodes Quasi-Monte Carlo
- Ici les *n* nodes *x* sont déterministes, sur une intervalle [a,b] ;  les weights *w=(b-a)/n* étant identiques
+	**Méthodes Quasi-Monte Carlo**
+	Ici les *n* nodes *x* sont déterministes, sur une intervalle [a,b] ;  les weights *w=(b-a)/n* étant identiques
 
- L’espérance de *f* est obtenue par `Somme(w*f(x))`
+	L’espérance de *f* est obtenue par
+	```Matlab
+	Somme(w*f(x))
+	```
  
 ### Méthode de différentiation
 Pour une fonction *f*, une approximation *O(h²)* de sa dérivée, autour du point *x0*, est de la forme:
