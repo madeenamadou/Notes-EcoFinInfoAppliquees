@@ -78,7 +78,9 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 ## Méthode d’intégration et de différentiation
 ### Méthode d’intégration
+
 - Calcul de l'aire
+
 	**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
 	
 		Trapezoid rule : pour les fonctions discontinues ayant des points d’inflexion
@@ -101,6 +103,7 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 		```
 
 - Calcul de l’espérance
+
 	**Méthodes Gaussian quadrature**
 	
 		Pour x suivant une **loi normale (mu, var)**, *n* les nodes gaussiens et *w* les weights gaussiens,
