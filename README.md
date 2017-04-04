@@ -2,6 +2,14 @@
 
 Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etudiants en ingenierie financiere, finance mathematique et computationnelle.
 
+
+## Système d’équations linéaire : Ax = b
+- Méthodes directes
+Décomposition LU, Cholesky ` x = A\b `
+- Méthode itérative (forme Qx = b + (Q − A)x)
+Gauss-jacobi : `gjacobi (A,b)`
+Gauss-seidel : `gseidel (A,b)`
+
 ## Système d’équations linéaire : Ax = b
 ### Méthodes directes
 
