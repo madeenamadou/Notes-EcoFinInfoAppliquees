@@ -168,4 +168,3 @@ Pour une bonne approximation, il faut que :
 
 
 
-
