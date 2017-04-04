@@ -161,7 +161,7 @@ Le principe de résolution est de dériver une approximation de taylor de  à l�
 
 Pour une bonne approximation, il faut que :
 
-![](pic/maths/ivp1.png)
+![](pic/maths/ivp1.gif)
 
 On choisit a_2 puis on trouve ensuite les autres paramètres. Il existe trois méthodes communes pour évaluer les paramètres inconnus, connus comme: méthode de Heun, la méthode du point milieu et la méthode de Ralston.
 
@@ -173,14 +173,25 @@ On choisit a_2 puis on trouve ensuite les autres paramètres. Il existe trois m�
 
 **Paul L. Fackler & Mario J. Miranda** : (a_2,a_1,p_1,q_1) = (3/4,1/4,2/3,2/3)
 
-**Méthode Runge-Kutta 4** : y(x+h) = y(x)+1/6 [F_1+2(F_2+F_3 )+ F_4]
+**Méthode Runge-Kutta 4** : ![](pic/maths/ivp2.gif)
 
+>Avec
 
+![](pic/maths/ivp3.gif)
 
-$\text{S}_1(N) = \sum_{p=1}^N \text{E}(p)$
+Pour un système d’équation différentiel « system », une période allant de t0 à tf, des valeurs initiales stockées dans la matrice «inits», la résolution numérique avec Runge-Kutta 4 :
 
+```Matlab
+[t,y] = ode45('system',[t0 tf],inits)
+[t,y] = rk4('system',(t0:tf)',inits)
+```
 
-\left\{\begin{matrix} a_1 + a_2 = 1\\ a_2 p_1 = 1/2\\ a_2q_1 = 1/2 \end{matrix}\right.
+>Ou, avec un pas «h», des valeurs initiales stockées dans la matrice «Y0», la période initiale «t0», pour un système d’équation différentiel «f», la résolution numérique MuPAD avec Runge-Kutta 4 :
+```Matlab
+sol1 := numeric::odesolve2(f, t0, Y0, RK4, Stepsize=h)
+```
+
+## Boundary Value Problem 
 
 
 
