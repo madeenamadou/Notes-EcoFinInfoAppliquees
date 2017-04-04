@@ -31,12 +31,12 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 
 - Méthode Quasi-Newton : utilise une approximation du jacobien
 
- * Secant Method : une variable
+	* Secant Method : une variable
 
- * Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
- Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden(’f’,[x1;x2])`
+ 	* Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
+ 	Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden(’f’,[x1;x2])`
     
- >**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
+ 	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
 - Méthodes exclusives pour Point-fixes
 	
@@ -48,19 +48,19 @@ Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etud
 	```
 
 - Complementary Method : utilise le jacobien
-Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
+	Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
- * Méthode semismooth
- Pour une fonction f, un intervalle [a,b], et une valeur initiale x0, 
- ```Matlab
- ncpsolve('f',a,b,x)
- ```
+	* Méthode semismooth
+	Pour une fonction f, un intervalle [a,b], et une valeur initiale x0, 
+	```Matlab
+	ncpsolve('f',a,b,x)
+	```
  
- * Méthode minmax
- Spécifier d’abord l'option 'type'
- ```Matlab
- optset('ncpsolve','type','minmax')
- ```
+	* Méthode minmax
+	Spécifier d’abord l'option 'type'
+	```Matlab
+	optset('ncpsolve','type','minmax')
+	```
 
 ### Problèmes d’optimisation (recherche du maximum et du minimum)
 - Méthodes sans dérivées :
@@ -71,32 +71,37 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
  	golden('f',a,b)
  	```
 
- * Méthode Algorithm Nelder-Mead : plusieurs variables, avec des valeurs initiales pour les variables
- Pour une fonction f à deux variables, avec les valeurs initiales x1 et x2, 
- 
- `neldmead(’f’,[x1;x2])`
+	* Méthode Algorithm Nelder-Mead : plusieurs variables, avec des valeurs initiales pour les variables
+	Pour une fonction f à deux variables, avec les valeurs initiales x1 et x2, 
+ 	```Matlab
+	neldmead(’f’,[x1;x2])
+	```
 
-## Méthode d’intégration et de différentiation
-### Méthode d’intégration
+### Méthode d’intégration et de différentiation
+- Méthode d’intégration
 
-#### Calcul de l'aire
-* Méthodes Newton-cotes : calcul de l’aire sous la fonction
-**Trapezoid rule :** pour les fonctions discontinues ayant des points d’inflexion
+	* Calcul de l'aire
+		**Méthodes Newton-cotes** : calcul de l’aire sous la fonction
+		**Trapezoid rule :** pour les fonctions discontinues ayant des points d’inflexion
  
- Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
+ 		Pour n trapezes, sur un intervalle [a,b], *n* les nodes et *w* les weights,
+ 		```Matlab
+		[x,w] = qnwtrap(n,a,b)
+		```
  
- `[x,w] = qnwtrap(n,a,b)`
+		**Simpson rule :** pour les fonctions plus lisses
+		```Matlab
+		[x,w] = qnwsimp(n,a,b)
+		```
  
-**Simpson rule :** pour les fonctions plus lisses
- 
- `[x,w] = qnwsimp(n,a,b)`
- 
- >Si *w(x)=1*, on calcule l’aire sous la fonction
+		>Si *w(x)=1*, on calcule l’aire sous la fonction
 
- * Méthodes Gaussian quadrature
-  Legendre quadrature, pour w(x) = 1 
+		Méthodes Gaussian quadrature
+  	Legendre quadrature, pour w(x) = 1 
 
- `[x,w] = qnwlege(n,a,b)`
+		```Matlab
+		[x,w] = qnwlege(n,a,b)
+		```
 
 #### Calcul de l’espérance
 * Méthodes Gaussian quadrature
