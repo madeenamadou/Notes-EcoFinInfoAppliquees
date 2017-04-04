@@ -177,14 +177,10 @@ On choisit a_2 puis on trouve ensuite les autres param√®tres. Il existe trois m√
 
 
 
-```math 
-#yourmathlabel
-a_2,a_1,p_1,q_1) = (3/4,1/4,2/3,2/3
-```
+$\text{S}_1(N) = \sum_{p=1}^N \text{E}(p)$
 
 
-
-
+\left\{\begin{matrix} a_1 + a_2 = 1\\ a_2 p_1 = 1/2\\ a_2q_1 = 1/2 \end{matrix}\right.
 
 
 
