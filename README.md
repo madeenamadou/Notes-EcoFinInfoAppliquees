@@ -1,4 +1,4 @@
-# Notes du cours Applied Computational Economics, donne en MA Economics a l'universite McGill (Montreal, CA)
+# Notes du cours d'Économie et finance informatiques appliquées donné à l'Université McGill
 
 Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etudiants en ingenierie financiere, finance mathematique et computationnelle.
 
