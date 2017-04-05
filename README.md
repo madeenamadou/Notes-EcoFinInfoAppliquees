@@ -325,6 +325,41 @@ Soit <img src="https://latex.codecogs.com/gif.latex?V_t(s)" vertical-align="midd
 
 Pour <img src="https://latex.codecogs.com/gif.latex?s&space;\epsilon&space;S" vertical-align="middle"/>,
 
+<img src="https://latex.codecogs.com/gif.latex?V_t(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s^{'}&space;\epsilon&space;S}&space;Prob&space;(s_{t&plus;1}&space;=&space;s^{'}|s&space;=&space;s_t,&space;x=x_t)V_{t&plus;1}(s^{'})\right&space;\}" vertical-align="middle"/>
+
+C'est <strong>l’équation de Bellman</strong>.
+
+Ensuite, on cherche <img src="https://latex.codecogs.com/gif.latex?x&space;\epsilon&space;X" vertical-align="middle"/> tel que :
+
+<img src="https://latex.codecogs.com/gif.latex?x^{*}_t(s)&space;=&space;argmax(x){V_t(s),s\epsilon&space;S}" vertical-align="middle"/>
+
+On impose une condition terminale, généralement <img src="https://latex.codecogs.com/gif.latex?V_{t+1}(s)=0" vertical-align="middle"/>. Avec cette condition, pour (+1) on va backward, en cherchant <img src="https://latex.codecogs.com/gif.latex?V_t(s)" vertical-align="middle"/> puis <img src="https://latex.codecogs.com/gif.latex?V_{t-1}(s)" vertical-align="middle"/> et ainsi de suite jusqu’à <img src="https://latex.codecogs.com/gif.latex?V_1(s)" vertical-align="middle"/>.
+
+* Horizons infinis
+
+Pour les horizons infinis, <img src="https://latex.codecogs.com/gif.latex?V(s)" vertical-align="middle"/> ne dépend plus de _t_ et le problème s’écrit :
+
+<img src="https://latex.codecogs.com/gif.latex?\center&space;V(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s^{'}&space;\epsilon&space;S}&space;Prob&space;(s^{'}|s&space;=&space;s,&space;x)V(s^{'}))\right&space;\}\\&space;\center&space;x^{*}(s)&space;=&space;argmax(x){V(s),s&space;\epsilon&space;S}" vertical-align="middle"/>
+
+<img src="https://latex.codecogs.com/gif.latex?V_{t+1}(s)=0" vertical-align="middle"/>
+
+Pour <img src="https://latex.codecogs.com/gif.latex?s&space;\epsilon&space;S" vertical-align="middle"/>,
+
+<img src="https://latex.codecogs.com/gif.latex?\center&space;V_T(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)\right&space;\}&space;\\&space;\center&space;V_{t-1}(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s'\epsilon&space;S}&space;Prob&space;(s_T=s^{'}|s_{T-1}&space;=&space;s,&space;x_{T-1}=x)V_T(s^{'}))\right&space;\}\\" vertical-align="middle"/>
+
+Et ainsi de suite….
+
+On peut utiliser la méthode backward recursion.
+
+
+
+
+
+
+
+
+
+
 
 
 
