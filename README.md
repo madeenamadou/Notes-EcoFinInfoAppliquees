@@ -339,18 +339,35 @@ On impose une condition terminale, généralement <img src="https://latex.codeco
 
 Pour les horizons infinis, <img src="https://latex.codecogs.com/gif.latex?V(s)" vertical-align="middle"/> ne dépend plus de _t_ et le problème s’écrit :
 
-<img src="https://latex.codecogs.com/gif.latex?\center&space;V(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s^{'}&space;\epsilon&space;S}&space;Prob&space;(s^{'}|s&space;=&space;s,&space;x)V(s^{'}))\right&space;\}\\&space;\center&space;x^{*}(s)&space;=&space;argmax(x){V(s),s&space;\epsilon&space;S}" vertical-align="middle"/>
+<img src="https://latex.codecogs.com/gif.latex?\center&space;V(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s^{'}&space;\epsilon&space;S}&space;Prob&space;(s^{'}|s&space;=&space;s,&space;x)V(s^{'})\right&space;\}\\&space;\center&space;x^{*}(s)&space;=&space;argmax(x){V(s),s&space;\epsilon&space;S}" vertical-align="middle"/>
 
 <img src="https://latex.codecogs.com/gif.latex?V_{t+1}(s)=0" vertical-align="middle"/>
 
 Pour <img src="https://latex.codecogs.com/gif.latex?s&space;\epsilon&space;S" vertical-align="middle"/>,
 
-<img src="https://latex.codecogs.com/gif.latex?\center&space;V_T(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)\right&space;\}&space;\\&space;\center&space;V_{t-1}(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s'\epsilon&space;S}&space;Prob&space;(s_T=s^{'}|s_{T-1}&space;=&space;s,&space;x_{T-1}=x)V_T(s^{'}))\right&space;\}\\" vertical-align="middle"/>
+<img src="https://latex.codecogs.com/gif.latex?\center&space;V_T(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)\right&space;\}&space;\\&space;\center&space;V_{t-1}(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s'\epsilon&space;S}&space;Prob&space;(s_T=s^{'}|s_{T-1}&space;=&space;s,&space;x_{T-1}=x)V_T(s^{'})\right&space;\}\\" vertical-align="middle"/>
 
 Et ainsi de suite….
 
 On peut utiliser la méthode backward recursion.
 
+Soit _n_ le nombre fini d’états possibles, _m_ le nombre fini d’actions disponibles. À la période _t_, la matrice des probabilités de transition vers l’état <img src="https://latex.codecogs.com/gif.latex?s_i&space;\epsilon&space;S" vertical-align="middle"/>
+
+<img src="https://latex.codecogs.com/gif.latex?P(s_i)=\begin{bmatrix}&space;Prob(s_i|s_1,x_1)&space;&&space;...&space;&&space;Prob(s_i|s_n,x_1)\\&space;Prob(s_i|s_1,x_2)&space;&&space;...&space;&&space;Prob(s_i|s_n,x_2)\\&space;.&space;&&space;...&space;&&space;.\\&space;.&space;&&space;...&space;&&space;.\\&space;Prob(s_i|s_1,x_m)&space;&&space;...&space;&&space;Prob(s_i|s_n,x_m)&space;\end{bmatrix}" vertical-align="middle"/>
+
+Il y a _n_ possibilités pour l’état <img src="https://latex.codecogs.com/gif.latex?s_i" vertical-align="middle"/> suivant :
+
+<img src="https://latex.codecogs.com/gif.latex?P(m(current&space;action)xn(current&space;state)xn(future&space;state)) = {P(s_i),i=1,...n}" vertical-align="middle"/>
+
+Pour une fonction reward «f», un horizon «N», un facteur d’escompte «delta»,  les probabilités de transition «P» dans une matrice _m x n x n_,
+
+On crée la structure «model»
+```Matlab
+model.reward    = f;
+model.transprob = P;
+model.horizon   = N;
+model.discount  = delta;
+```
 
 
 
