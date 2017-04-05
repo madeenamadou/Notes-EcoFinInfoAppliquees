@@ -357,7 +357,7 @@ Soit _n_ le nombre fini d’états possibles, _m_ le nombre fini d’actions dis
 
 Il y a _n_ possibilités pour l’état <img src="https://latex.codecogs.com/gif.latex?s_i" vertical-align="middle"/> suivant :
 
-<img src="https://latex.codecogs.com/gif.latex?P(m(current&space;action)xn(current&space;state)xn(future&space;state)) = {P(s_i),i=1,...n}" vertical-align="middle"/>
+<img src="https://latex.codecogs.com/gif.latex?P(m(currentaction)&space;\times&space;n(currentstate)&space;\times&space;n(futurestate))&space;=&space;\left&space;\{P(s_i),i=1,...n\rigth&space;\}" vertical-align="middle"/>
 
 Pour une fonction reward «f», un horizon «N», un facteur d’escompte «delta»,  les probabilités de transition «P» dans une matrice _m x n x n_,
 
