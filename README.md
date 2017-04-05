@@ -253,7 +253,7 @@ c = funfitf(fhat, f);
 
 Puis on calcule ![](pic/maths/int1.gif), pour “x” le vecteur-colonne des nodes <img src="https://latex.codecogs.com/gif.latex?x_i" title="x_i"/>
 
-
+<a href="https://latex.codecogs.com/gif.latex?x_i" target="_blank"></a>
 
 
 
