@@ -6,6 +6,7 @@ J'ajouterai des ressources et codes MATLAB avec le temps, donc n'hesitez pas à 
 
 Bonne lecture !!
 
+<hr>
 
 ## Système d’équations linéaire : Ax = b
 ### Méthodes directes
