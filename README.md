@@ -459,13 +459,15 @@ Pour un <strong>continuous action space</strong> X
 
 Action X, est une fonction du state S ; on a l’équation du problème : 
 
-<img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max\left\(f(S,X(S))&space;+&space;\delta&space;E(V(S,X(S),\epsilon))\right\)" vertical-align="middle"/>
+<img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max\left\(&space;f(S,X(S))&space;+&space;\delta&space;E(V(S,X(S),\epsilon))\right\)" vertical-align="middle"/>
 
 Action X peut être contrainte ou pas.
 
 Sans contrainte, on trouve la solution à partir de la condition de premier ordre : 
 
+<img src="http://latex.codecogs.com/gif.latex?V'(S)&space;=&space;f_s&space;&plus;&space;f_X&space;\frac{\partial&space;X}{\partial&space;S}&space;&plus;&space;\delta&space;E&space;\left&space;(&space;V'(S')&space;\left&space;(&space;g_s&space;&plus;&space;g_X&space;\frac{\partial&space;X}{\partial&space;S}&space;\right&space;)&space;\right&space;)&space;\\&space;\\&space;V'(S)&space;=&space;\left&space;(&space;f_X&space;&plus;&space;\delta&space;E&space;\left&space;(&space;V'(S')&space;\right&space;)&space;g_X&space;\right&space;)&space;\frac{\partial&space;X}{\partial&space;S}&space;&plus;&space;f_S&space;&plus;&space;\delta&space;E&space;\left&space;(&space;V'(S')&space;\right&space;)&space;g_S&space;\\&space;\\&space;f_X&space;&plus;&space;\delta&space;E&space;\left(&space;V'(S')g_X&space;=&space;0&space;\right&space;)" vertical-align="middle"/>
 
+Donc <img src="http://latex.codecogs.com/gif.latex?V'(S)&space;=&space;f_S&space;+&space;\deltaE(V'(S'))g_s&space;=&space;0" vertical-align="middle"/>
 
 
 
