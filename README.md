@@ -313,6 +313,19 @@ Pour chaque état, il y a un ensemble d’actions disponibles x. L’espace des 
 ### Discrete state space et discrete action space
 * Horizons finis
 
+À chaque période t, l’action x dans l’état s produit le reward f(x,s). S est un processus, soit deterministe, soit stochastique.
+
+Pour S stochastique, on suppose qu’il s’agit d’un markov decision process, donc, la probabilité d’un état <img src="https://latex.codecogs.com/gif.latex?s'=s_{t+1}" vertical-align="middle"/> dépend seulement de l’état s et de l'action x a la periode precedente t. Quand il n’y a qu’une seule action disponible pour chaque état possible, on parle de processus chaine de markov.
+
+La probabilité de transition <img src="https://latex.codecogs.com/gif.latex?P(s'=s_{t+1}|s=s_t,x=x_t)" vertical-align="middle"/>
+
+L’objectif est de trouver un ensemble optimal d’action <img src="https://latex.codecogs.com/gif.latex?X^*_t={x^*(s),&space;s\epsilon&space;S}" vertical-align="middle"/> poru chaque <img src="https://latex.codecogs.com/gif.latex?t=1,...,N" vertical-align="middle"/>
+
+Soit <img src="https://latex.codecogs.com/gif.latex?V_t(s)" vertical-align="middle"/> le reward maximum que l’agent peut atteindre à partir de _t_ jusqu’à la fin de période _T_. Pour chaque état  possible à _t_, il y a une valeur <img src="https://latex.codecogs.com/gif.latex?V_t(s)" vertical-align="middle"/>
+
+Pour <img src="https://latex.codecogs.com/gif.latex?s&space;\epsilon&space;S" vertical-align="middle"/>,
+
+
 
 
 
