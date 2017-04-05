@@ -269,7 +269,7 @@ On peut des polynômes splines. Le cubic splines est l’interpolation à l’or
 phi = fundefn('spli', m, a, b, k); 
 phi(nodes) = funbas(basis);
 c = funfitf(fhat, f); 
-//ou
+%ou
 c = phi(nodes) \ v ; 
 fhat = funeval(c,phi,x);
 ```
