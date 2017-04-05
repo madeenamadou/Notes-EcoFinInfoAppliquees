@@ -1,6 +1,9 @@
-# Notes du cours d'Économie et finance informatiques appliquées donné à l'Université McGill
 
-Ces notes comportent des codes MATLAB, et s'adressent tout aussi bien a des etudiants en ingenierie financiere, finance mathematique et computationnelle.
+J'ai initialement compilé ces notes pour mon propre usage, afin d'acceder rapidement aux concepts en cas de besoin. Les concepts ne sont pas exhaustivement détaillés car j'ai mis l'accent sur les procédures MATLAB. J'invite ceux qui voudraient plus de détails à regarder le livre numérique "Applied Computational Economics and Finance" de Mario J. Miranda & Paul L. Fackler.
+
+J'ajouterai des ressources et codes MATLAB avec le temps, donc n'hesitez pas à suivre ou forker [![le repertoire](https://github.com/madeenamadou/econ-comp/)]
+
+Bonne lecture !!
 
 
 ## Système d’équations linéaire : Ax = b
