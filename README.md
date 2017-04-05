@@ -8,6 +8,12 @@ Bonne lecture !!
 
 <hr>
 
+
+## Tables des matieres
+...
+
+
+
 ## Système d’équations linéaire : Ax = b
 ### Méthodes directes
 
