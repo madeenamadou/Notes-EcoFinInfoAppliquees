@@ -1,7 +1,7 @@
 
 J'ai initialement compilé ces notes pour mon propre usage, afin d'acceder rapidement aux concepts en cas de besoin. Les concepts ne sont pas exhaustivement détaillés car j'ai mis l'accent sur les procédures MATLAB. J'invite ceux qui voudraient plus de détails à regarder le livre numérique "Applied Computational Economics and Finance" de Mario J. Miranda & Paul L. Fackler.
 
-J'ajouterai des ressources et codes MATLAB avec le temps, donc n'hesitez pas à suivre ou forker ![le repertoire](https://github.com/madeenamadou/econ-comp/)
+J'ajouterai des ressources et codes MATLAB avec le temps, donc n'hesitez pas à suivre ou forker <a href="https://github.com/madeenamadou/econ-comp/">le repertoire</a>
 
 Bonne lecture !!
 
