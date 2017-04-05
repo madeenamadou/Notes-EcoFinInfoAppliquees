@@ -276,7 +276,7 @@ Pour un ensemble de _n_ collocation nodes <img src="https://latex.codecogs.com/g
 
 Pour <img src="https://latex.codecogs.com/gif.latex?i=1,...,n" vertical-align="middle"/>
 
-<img src="https://latex.codecogs.com/gif.latex?g(x_i,&space;\sum_{j=1}^{m}c_j\phi_j(x_i))&space;=&space;0" title="g(x_i, \sum_{j=1}^{m}c_j\phi_j(x_i)) = 0" vertical-align="middle"/>
+<img src="https://latex.codecogs.com/gif.latex?g(x_i,&space;\sum_{j=1}^{m}c_j\phi_j(x_i))&space;=&space;0" vertical-align="middle"/>
 
 On peut obtenir les collocations nodes à partir de nodes chebychev…
 ```Matlab
@@ -292,6 +292,19 @@ c = broyden('system',guess);
 ```
 
 ## Programmation Dynamique
+
+Sur _N_ periodes <img src="https://latex.codecogs.com/gif.latex?t=1,...,N" vertical-align="middle"/>. L’horizon _N_ peut être fini ou infini.
+
+On peut observer à chaque période, plusieurs états  possibles. L’espace des états _s_ peut être discret ou continu.
+
+<img src="https://latex.codecogs.com/gif.latex?S=\left&space;\{&space;s_1,s_2,s_3,s_4,...\right&space;\}" vertical-align="middle"/>
+
+Pour chaque état, il y a un ensemble d’actions disponibles x. L’espace des actions peut aussi être discret ou continu.
+
+<img src="https://latex.codecogs.com/gif.latex?X=\left&space;\{&space;x_1,x_2,x_3,x_4,...\right&space;\}" vertical-align="middle"/>
+
+### Discrete state space et discrete action space
+* Horizons finis
 
 
 
