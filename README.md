@@ -339,13 +339,13 @@ On impose une condition terminale, généralement <img src="https://latex.codeco
 
 Pour les horizons infinis, <img src="https://latex.codecogs.com/gif.latex?V(s)" vertical-align="middle"/> ne dépend plus de _t_ et le problème s’écrit :
 
-<img src="https://latex.codecogs.com/gif.latex?\center&space;V(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s^{'}&space;\epsilon&space;S}&space;Prob&space;(s^{'}|s&space;=&space;s,&space;x)V(s^{'})\right&space;\}\\&space;\center&space;x^{*}(s)&space;=&space;argmax(x){V(s),s&space;\epsilon&space;S}" vertical-align="middle"/>
+<img src="http://latex.codecogs.com/gif.latex?V(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s'&space;\epsilon&space;S}Prob(s'|s,x)V(s')&space;\right&space;\}\\&space;\\&space;x^{*}(s)&space;=&space;argmax(x\left&space;\{&space;V(s),s&space;\epsilon&space;S&space;\right&space;\})" vertical-align="middle"/>
 
 <img src="https://latex.codecogs.com/gif.latex?V_{t+1}(s)=0" vertical-align="middle"/>
 
 Pour <img src="https://latex.codecogs.com/gif.latex?s&space;\epsilon&space;S" vertical-align="middle"/>,
 
-<img src="https://latex.codecogs.com/gif.latex?\center&space;V_T(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)\right&space;\}&space;\\&space;\center&space;V_{t-1}(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s'\epsilon&space;S}&space;Prob&space;(s_T=s^{'}|s_{T-1}&space;=&space;s,&space;x_{T-1}=x)V_T(s^{'})\right&space;\}\\" vertical-align="middle"/>
+<img src="https://latex.codecogs.com/gif.latex?V_T(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)\right&space;\}&space;\\&space;V_{t-1}(s)&space;=&space;max&space;\left&space;\{&space;f(s,x)&space;&plus;&space;\delta&space;\sum_{s'\epsilon&space;S}&space;Prob&space;(s_T=s^{'}|s_{T-1}&space;=&space;s,&space;x_{T-1}=x)V_T(s^{'})\right&space;\}\\" vertical-align="middle"/>
 
 Et ainsi de suite….
 
