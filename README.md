@@ -451,11 +451,20 @@ for it=1:1000
     if norm(c-cold)<1.e-10, break, end
 end
 
-//on devrait avoir au final, 
+% on devrait avoir au final, 
 funeval(c,basis,p) = v
 ```
 
 Pour un <strong>continuous action space</strong> X
+
+Action X, est une fonction du state S ; on a l’équation du problème : 
+
+<img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max\left\(f(S,X(S))&space;\plus&space;\deltaE(V(S,X(S),\epsilon))\right\)" vertical-align="middle"/>
+
+Action X peut être contrainte ou pas.
+
+Sans contrainte, on trouve la solution à partir de la condition de premier ordre : 
+
 
 
 
