@@ -251,9 +251,7 @@ Ensuite, on obtient les <a href="https://www.codecogs.com/eqnedit.php?latex=c_j"
 c = funfitf(fhat, f);
 ```
 
-Puis on calcule ![](pic/maths/int1.gif), pour “x” le vecteur-colonne des nodes <img src="https://latex.codecogs.com/gif.latex?x_i" title="x_i"/>
-
-<a href="https://latex.codecogs.com/gif.latex?x_i" target="_blank"></a>
+Puis on calcule ![](pic/maths/int1.gif), pour “x” le vecteur-colonne des nodes inline:<img src="https://latex.codecogs.com/gif.latex?x_i" title="x_i"/>
 
 
 
