@@ -369,8 +369,93 @@ model.horizon   = N;
 model.discount  = delta;
 ```
 
+Ensuite on trouve la solution <img src="https://latex.codecogs.com/gif.latex?[v,s]&space;=&space;[V_t(s),&space;x_t^{*}(s)]" vertical-align="middle"/>
+```Matlab
+[v,x] = ddpsolve(model);
+```
+
+Rechercher les informations suivantes:
+	* State space
+	* Action space
+	* Reward function (based on Action space)
+	* Transition probability matrix (m x n x n)
+
+Pour un <strong>continuous state space</strong> S, le next state est une fonction continue du current state, du current action et d’un terme d’erreur (déterministe ou stochastique) : <img src="https://latex.codecogs.com/gif.latex?S'&space;=&space;g(S,X,\epsilon)" vertical-align="middle"/>
+
+On travaille avec une approximation de la objective function (avec cubic spline)
+
+<img src="https://latex.codecogs.com/gif.latex?V(S)&space;=&space;\sum_{j=1}^{n}C_j\phi_j(S)" vertical-align="middle"/>, à partir de collocation nodes <img src="https://latex.codecogs.com/gif.latex?\left\{S_1,S_2,S_3,...,S_n\right\}" vertical-align="middle"/>
+
+Pour chaque collocation nodes <img src="https://latex.codecogs.com/gif.latex?S_i" vertical-align="middle"/>, on veut résoudre :
+
+<img src="http://latex.codecogs.com/gif.latex?\sum_{j=1}^{n}C_j\phi_j(S)&space;=&space;max&space;\left\(f(S_i,X)&space;&plus;&space;\delta\sum_{S'\epsilon&space;S}Prob\left\(g(S,X,\epsilon)|S,X\right\)\sum_{j=1}^{n}C_j\phi_j\left\(g(S,X,\epsilon)\right\)\right\)" vertical-align="middle"/>
+
+Si <img src="https://latex.codecogs.com/gif.latex?\\epsilon" vertical-align="middle"/> est stochastique, on calcule l’espérance : 
+
+<img src="http://latex.codecogs.com/gif.latex?\sum_{S'\epsilon&space;S}Prob\left\(g(S,X,\epsilon)|S,X\right\)\sum_{j=1}^{n}C_j\phi_j\left\(g(S,X,\epsilon)\right\)" vertical-align="middle"/>
+
+avec une méthode d’intégration (comme gaussian quadrature). À partir de nodes <img src="http://latex.codecogs.com/gif.latex?\epsilon_k" vertical-align="middle"/> et des poids <img src="http://latex.codecogs.com/gif.latex?W_k" vertical-align="middle"/>, l’équation devient: 
+
+<img src="http://latex.codecogs.com/gif.latex?\sum_{j=1}^{n}C_j\phi_j(S)&space;=&space;max&space;\left\(f(S_i,X)&space;&plus;&space;\delta\sum_{k=1}^{z}W_k\sum_{j=1}^{n}C_j\phi_j\left\(g(S,X,\epsilon)\right\)\right\)" vertical-align="middle"/>
 
 
+Concrètement…
+
+Pour une fonction de transition d’état <img src="http://latex.codecogs.com/gif.latex?g(S,X,\epsilon)" vertical-align="middle"/>, avec <img src="http://latex.codecogs.com/gif.latex?\epsilon" vertical-align="middle"/> une v.a. <img src="http://latex.codecogs.com/gif.latex?N(0,\sigma^2)" vertical-align="middle"/>, 
+
+On génère les nodes <img src="http://latex.codecogs.com/gif.latex?\epsilon_k" vertical-align="middle"/> et les poids <img src="http://latex.codecogs.com/gif.latex?W_k" vertical-align="middle"/>
+
+```Matlab
+[e,w] = qnwnorm(m,0,sigma^2);
+```
+
+Ensuite on trouve les <img src="http://latex.codecogs.com/gif.latex?\phi_j" vertical-align="middle"/>
+
+```Matlab
+basis = fundefn('spli', n, Smin, Smax);    
+p     = funnode(basis);      
+```
+
+Puis on trouve <img src="http://latex.codecogs.com/gif.latex?\left\[\sum_{j=1}^{n}\phi_j(S_i),&space;pour&space;i&space;=&space;1,...,N\right\]" vertical-align="middle"/>
+
+```Matlab
+phi   = funbas(basis); 
+```
+
+Ensuite, à partir d’un vecteur de valeurs initiales <img src="http://latex.codecogs.com/gif.latex?C_0&space;=&space;[C_{01},C_{02},C_{03},...,C_{0n}]" vertical-align="middle"/> on calcule :
+
+<img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max&space;\left\(f(S_i,X)&space;&plus;&space;\delta\sum_{k=1}^{z}W_k\sum_{j=1}^{n}C_j\phi_j\left\(g(S,X,\epsilon)\right\)\right\)" vertical-align="middle"/>
+
+```Matlab
+c = zeros(n,1);
+```
+
+Et on recherche <img src="http://latex.codecogs.com/gif.latex?C&space;=&space;[C_{1},C_{2},C_{3},...,C_{n}]" vertical-align="middle"/> tel que 
+
+<img src="http://latex.codecogs.com/gif.latex?\sum_{j=1}^{n}C_j\phi_j(S)&space;=&space;V(S)" vertical-align="middle"/>
+
+L’objectif est de trouver <img src="http://latex.codecogs.com/gif.latex?C&space;=&space;[C_{1},C_{2},C_{3},...,C_{n}]" vertical-align="middle"/> qui vérifie :
+
+<img src="http://latex.codecogs.com/gif.latex?\sum_{j=1}^{n}C_j\phi_j(S)&space;=&space;max&space;\left\(f(S_i,X)&space;&plus;&space;\delta\sum_{k=1}^{z}W_k\sum_{j=1}^{n}C_j\phi_j\left\(g(S,X,\epsilon)\right\)\right\)" vertical-align="middle"/>
+
+
+```Matlab
+for it=1:1000
+    cold   = c;
+    vprime = 0; 
+    for k=1:m 
+        vprime = vprime + w(k)*funeval(c,basis,beta*p+e(k));
+    end
+    v = max(exp(p)-K,delta*vprime);
+    c = Phi\v;
+    if norm(c-cold)<1.e-10, break, end
+end
+
+//on devrait avoir au final, 
+funeval(c,basis,p) = v
+```
+
+Pour un <strong>continuous action space</strong> X
 
 
 
