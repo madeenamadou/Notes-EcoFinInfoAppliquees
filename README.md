@@ -274,7 +274,7 @@ Il s’agit d’une méthode pour la fonction f solution du problème du type :
 
 Pour un ensemble de _n_ collocation nodes <img src="https://latex.codecogs.com/gif.latex?x_i&space;\epsilon&space;[a,b]" vertical-align="middle"/> le problème revient à résoudre simultanément les équations linéaires suivantes, pour <img src="https://latex.codecogs.com/gif.latex?c_j" vertical-align="middle"/> :
 
-Pour <img src="https://latex.codecogs.com/gif.latex?i = 1,...,n" vertical-align="middle"/>
+Pour <img src="https://latex.codecogs.com/gif.latex?i=1,...,n" vertical-align="middle"/>
 
 <img src="https://latex.codecogs.com/gif.latex?g(x_i,&space;\sum_{j=1}^{m}c_j\phi_j(x_i))&space;=&space;0" title="g(x_i, \sum_{j=1}^{m}c_j\phi_j(x_i)) = 0" vertical-align="middle"/>
 
