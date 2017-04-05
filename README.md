@@ -2,7 +2,7 @@
 J'ai initialement compilé ces notes pour mon propre usage, afin d'acceder rapidement aux concepts en cas de besoin. Les concepts ne sont pas exhaustivement détaillés car j'ai mis l'accent sur les procédures MATLAB. J'invite ceux qui voudraient plus de détails à regarder le livre numérique 
 <a href="https://github.com/madeenamadou/econ-comp/blob/master/%5BMario_J._Miranda%2C_Paul_L._Fackler%5D_Applied_Comput.pdf">Applied Computational Economics and Finance</a> de Mario J. Miranda & Paul L. Fackler.
 
-J'ajouterai des ressources et codes MATLAB avec le temps, donc n'hesitez pas à <a href="https://github.com/madeenamadou/">suivre</a> ou <a href="https://github.com/madeenamadou/econ-comp/fork">copier</a> le <a href="https://github.com/madeenamadou/econ-comp/">répertoire</a>.
+J'ajouterai des ressources et codes MATLAB avec le temps, donc n'hesitez pas à <a href="https://github.com/madeenamadou/">suivre</a> ou <a href="https://github.com/madeenamadou/econ-comp/fork">copier</a> le <a href="https://github.com/madeenamadou/econ-comp/">répertoire GitHub</a>.
 
 Bonne lecture !!
 
@@ -236,7 +236,23 @@ Pour _i = 1...n_,
 
 ![](pic/maths/int4.gif)
 
-Les méthodes d’interpolations diffèrent dans le choix des fonctions ϕ. Les ϕ_j_ sont généralement des polynômes.
+Les méthodes d’interpolations diffèrent dans le choix des fonctions ϕ. Les ϕ_j sont généralement des polynômes.
+
+On peut des polynômes Chebychev.
+
+Pour un degré d’interpolation _m_, un intervalle de nodes <a href="https://www.codecogs.com/eqnedit.php?latex=x_i&space;\epsilon&space;[a,b]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_i&space;\epsilon&space;[a,b]" title="x_i \epsilon [a,b]" /></a>, on obtient les <a href="https://www.codecogs.com/eqnedit.php?latex=\phi_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_j" title="\phi_j" /></a>
+```Matlab
+phi = fundefn('cheb', m, a, b);
+```
+
+Ensuite, on obtient les <a href="https://www.codecogs.com/eqnedit.php?latex=c_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?c_j" title="c_j" /></a> pour une interpolation de f
+
+```Matlab
+c = funfitf(fhat, f);
+```
+
+Puis on calcule ![](pic/maths/int1.gif), pour “x” le vecteur-colonne des nodes <a href="https://www.codecogs.com/eqnedit.php?latex=x_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_i" title="x_i" /></a>
+
 
 
 
