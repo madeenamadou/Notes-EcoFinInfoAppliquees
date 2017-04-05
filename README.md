@@ -459,7 +459,7 @@ Pour un <strong>continuous action space</strong> X
 
 Action X, est une fonction du state S ; on a l’équation du problème : 
 
-<img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max\left\(f(S,X(S))&space;\plus&space;\deltaE(V(S,X(S),\epsilon))\right\)" vertical-align="middle"/>
+<img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max\left\(f(S,X(S))&space;+&space;\delta&space;E(V(S,X(S),\epsilon))\right\)" vertical-align="middle"/>
 
 Action X peut être contrainte ou pas.
 
