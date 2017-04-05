@@ -240,18 +240,59 @@ Les méthodes d’interpolations diffèrent dans le choix des fonctions ϕ. Les 
 
 On peut des polynômes Chebychev.
 
-Pour un degré d’interpolation _m_, un intervalle de nodes <a href="https://www.codecogs.com/eqnedit.php?latex=x_i&space;\epsilon&space;[a,b]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_i&space;\epsilon&space;[a,b]" title="x_i \epsilon [a,b]" /></a>, on obtient les <a href="https://www.codecogs.com/eqnedit.php?latex=\phi_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_j" title="\phi_j" /></a>
+Pour un degré d’interpolation _m_, un intervalle de nodes <img src="https://latex.codecogs.com/gif.latex?x_i&space;\epsilon&space;[a,b]" vertical-align="middle"/>, on obtient les <img src="https://latex.codecogs.com/gif.latex?\phi_j" vertical-align="middle"/>
 ```Matlab
 phi = fundefn('cheb', m, a, b);
 ```
 
-Ensuite, on obtient les <a href="https://www.codecogs.com/eqnedit.php?latex=c_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?c_j" title="c_j" /></a> pour une interpolation de f
+Ensuite, on obtient les <img src="https://latex.codecogs.com/gif.latex?c_j" vertical-align="middle"/> pour une interpolation de f
 
 ```Matlab
 c = funfitf(fhat, f);
 ```
 
-Puis on calcule ![](pic/maths/int1.gif), pour “x” le vecteur-colonne des nodes <img src="https://latex.codecogs.com/gif.latex?x" title="x" vertical-align="middle"/>
+Puis on calcule ![](pic/maths/int1.gif), pour “x” le vecteur-colonne des nodes <img src="https://latex.codecogs.com/gif.latex?x_i" vertical-align="middle"/>
+```Matlab
+fhat = funeval(c,phi,x)
+```
+
+On peut des polynômes splines. Le cubic splines est l’interpolation à l’ordre 3 avec cette famille de polynômes. En utilisant cubic splines <img src="https://latex.codecogs.com/gif.latex?(k=3)" vertical-align="middle"/>,
+
+```Matlab
+phi = fundefn('spli', m, a, b, k); 
+phi(nodes) = funbas(basis);
+c = funfitf(fhat, f); 
+//ou
+c = phi(nodes) \ v ; 
+fhat = funeval(c,phi,x);
+```
+
+## Méthode Collocation
+Il s’agit d’une méthode pour la fonction f solution du problème du type :
+
+<img src="https://latex.codecogs.com/gif.latex?g(x,f(x))=0" vertical-align="middle"/> sur un intervalle <img src="https://latex.codecogs.com/gif.latex?[a,b]" vertical-align="middle"/>. Comme un système d’équation différentielle à l’ordre zéro. Le principe est d’utiliser une interpolation ![](pic/maths/int1.gif) de f.
+
+Pour un ensemble de _n_ collocation nodes <img src="https://latex.codecogs.com/gif.latex?x_i&space;\epsilon&space;[a,b]" vertical-align="middle"/> le problème revient à résoudre simultanément les équations linéaires suivantes, pour <img src="https://latex.codecogs.com/gif.latex?c_j" vertical-align="middle"/> :
+
+Pour <img src="https://latex.codecogs.com/gif.latex?i = 1,...,n" vertical-align="middle"/>
+
+<img src="https://latex.codecogs.com/gif.latex?g(x_i,&space;\sum_{j=1}^{m}c_j\phi_j(x_i))&space;=&space;0" title="g(x_i, \sum_{j=1}^{m}c_j\phi_j(x_i)) = 0" vertical-align="middle"/>
+
+On peut obtenir les collocations nodes à partir de nodes chebychev…
+```Matlab
+phi = fundefn('cheb', m, a, b);
+x = funnode(phi);
+```
+
+Ensuite, on peut résoudre ce problème en utilisant broyden.
+
+Pour un système d’équation «system», 
+```Matlab
+c = broyden('system',guess);
+```
+
+## Programmation Dynamique
+
 
 
 
