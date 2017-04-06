@@ -9,8 +9,7 @@ Bonne lecture !!
 <hr>
 
 
-<h2>Tables des matieres</h2>
-...
+
 
 
 
