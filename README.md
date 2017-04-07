@@ -23,7 +23,7 @@ Méthode itérative (forme Qx = b + (Q − A)x)
 - Gauss-jacobi : `gjacobi (A,b)`
 - Gauss-seidel : `gseidel (A,b)`
 
-## Systèmes d’équations non linéaires : Points fixes (f(x) = x) & Solutions racines (f(x) = 0)
+## Systèmes d’équations non linéaires : Points fixes (f(x0) = x0) & Solutions racines (f(x0) = 0)
 ### Méthode bisection, sur un interval [a,b]
 
 Pour une fonction f,
@@ -31,7 +31,7 @@ Pour une fonction f,
 bisect ('f',a,b)
 ```
 
-### Méthode Newton : un ou plusieurs variables, avec des valeurs initiales, utilise le jacobien
+### Méthode Newton : une ou plusieurs variables; avec des valeurs initiales; utilise le jacobien
 
 Pour une fonction f à 2 variables, avec des valeurs initiales respectives x1 et x2 
 ```Matlab
@@ -41,8 +41,11 @@ newton('f',[x1;x2])
 ### Méthode Quasi-Newton : utilise une approximation du jacobien
 - Secant Method : une variable
 	
-	Broyden Method : plusieurs variables, utilise une valeur initiale pour la racine, et une autre pour le Jacobien
- 	Pour une fonction f à deux variables, et pour les valeurs initiales x1et x2 des variables `broyden('f',[x1;x2])`
+	Broyden Method : plusieurs variables; utilise une valeur initiale pour la racine, et une autre pour le Jacobien
+ 	Pour une fonction f à deux variables, et pour les valeurs initiales x1 et x2 des variables
+	```Matlab
+	broyden('f',[x1;x2])
+	```
 	
 	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
@@ -72,14 +75,14 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
 ## Problèmes d’optimisation (recherche du maximum et du minimum)
 ### Méthodes sans dérivées :
-- Method Golden Search : une variable, optimum local sur un interval [a,b]
+- Method Golden Search : une variable; optimum local sur un interval [a,b]
 	
 	Pour une fonction f, sur un interval [a,b]
 	```Matlab
 	golden('f',a,b)
 	```
 
-- Méthode Algorithm Nelder-Mead : plusieurs variables, avec des valeurs initiales pour les variables
+- Méthode Algorithm Nelder-Mead : plusieurs variables; avec des valeurs initiales pour les variables
 	
 	Pour une fonction f à deux variables, avec les valeurs initiales x1 et x2,
 	```Matlab
@@ -105,7 +108,7 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 	[x,w] = qnwsimp(n,a,b)
 	```
 	
-	>Si *w(x)=1*, on calcule l’aire sous la fonction
+	>Lorsque *w(x)=1*, on obtient l’aire sous la fonction
 	
 	**Méthodes Gaussian quadrature**
 	
@@ -122,11 +125,11 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 	```Matlab
 	[x,w] = qnwnorm(n,mu, var)
 	```
-	>Si w(x) = *fonction de densité de probabilité* de *x*, on calcule l’espérance de la fonction par `Somme(w*f(x))`
+	>Si w(x) = *fonction de densité de probabilité* de *x*, on obtient l’espérance de la fonction par `Somme(w*f(x))`
 
 	**Méthodes Intégration Monte-Carlo**
 	
-	Il faut générer pseudoaléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
+	Il faut générer pseudo-aléatoirement *n* nodes *x* d’après la distribution ; les weights *w=1/n* étant identiques
 	
 	L’espérance de *f* est obtenue par
 	```Matlab
@@ -135,7 +138,7 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
 	**Méthodes Quasi-Monte Carlo**
 	
-	Ici les *n* nodes *x* sont déterministes, sur une intervalle [a,b] ;  les weights *w=(b-a)/n* étant identiques
+	Ici les *n* nodes *x* sont déterministes, sur un intervalle [a,b],  les weights *w=(b-a)/n* étant identiques.
 	
 	L’espérance de *f* est obtenue par
 	```Matlab
@@ -146,6 +149,8 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
 Pour une fonction *f*, une approximation *O(h²)* de sa dérivée, autour du point *x0*, est de la forme:
 >*f'(x0) = a*f(x0) + b*f(x0 + h) + c*f(x0 + alpha*h) [ + O(h²)]*
+
+><img src="http://latex.codecogs.com/gif.latex?af(x_0)&space;+&space;bf(x_0+h)&space;+&space;cf(x_0+\alphah)&space;[+O(h^2)]" vertical-align="middle"/>
 
 >où (x0 + h), (x0 + alpha*h) sont deux autres points,
 >choisir, alpha = 2, et choisir h quelconque, les paramètres a, b et c, s’obtiennent en résolvant le système suivant :
@@ -467,6 +472,8 @@ Sans contrainte, on trouve la solution à partir de la condition de premier ordr
 <img src="http://latex.codecogs.com/gif.latex?V'(S)&space;=&space;f_s&space;&plus;&space;f_X&space;\frac{\partial&space;X}{\partial&space;S}&space;&plus;&space;\delta&space;E&space;\left&space;(&space;V'(S')&space;\left&space;(&space;g_s&space;&plus;&space;g_X&space;\frac{\partial&space;X}{\partial&space;S}&space;\right&space;)&space;\right&space;)&space;\\&space;\\&space;V'(S)&space;=&space;\left&space;(&space;f_X&space;&plus;&space;\delta&space;E&space;\left&space;(&space;V'(S')&space;\right&space;)&space;g_X&space;\right&space;)&space;\frac{\partial&space;X}{\partial&space;S}&space;&plus;&space;f_S&space;&plus;&space;\delta&space;E&space;\left&space;(&space;V'(S')&space;\right&space;)&space;g_S&space;\\&space;\\&space;f_X&space;&plus;&space;\delta&space;E&space;\left(&space;V'(S')g_X&space;=&space;0&space;\right&space;)" vertical-align="middle"/>
 
 Donc <img src="http://latex.codecogs.com/gif.latex?V'(S)&space;=&space;f_S&space;+&space;\deltaE(V'(S'))g_s&space;=&space;0" vertical-align="middle"/>
+
+
 
 
 
