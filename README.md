@@ -8,13 +8,36 @@ Bonne lecture !!
 
 <hr>
 
+## Table of contents
+1. [Système d’équations linéaire](#eqline)
+	[Méthodes directes] (#methdir)
+2. [Systèmes d’équations non linéaires] (#eqnoline)
+	[Méthode bisection] (#bisect)
+	[Méthode Newton] (#newton)
+	[Méthode Quasi-Newton] (#quasinewton)
+	[Méthodes exclusives pour Point-fixes] (#exclu)
+	[Complementary Method] (#complem)
+3. [Problèmes d’optimisation] (#optm)
+	[Méthodes sans dérivées] (#noderiv)
+4. [Méthode d’intégration et de différentiation] (#intdiff)
+	[Méthode d’intégration] (#int)
+	[Méthode de différentiation] (#diff)
+5. [Initial Value Problem] (#ivp)
+6. [Boundary Value Problem] (#bvp)
+7. [Interpolation] (#interpol)
+8. [Méthode Collocation] (#colloc)
+9. [Programmation Dynamique (#progdyn)
+	[Discrete state space, Discrete action space] (#dss_das)
+	[Continuous state space] (#csp)
+	[Continuous action space] (#cas)
 
 
 
 
 
-## Système d’équations linéaire : Ax = b
-### Méthodes directes
+
+## Système d’équations linéaire : Ax = b <a name="eqline"></a>
+### Méthodes directes <a name="methdir"></a>
 
 Décomposition LU, Cholesky `x = A\b`
 
@@ -23,22 +46,22 @@ Méthode itérative (forme Qx = b + (Q − A)x)
 - Gauss-jacobi : `gjacobi (A,b)`
 - Gauss-seidel : `gseidel (A,b)`
 
-## Systèmes d’équations non linéaires : Points fixes (f(x0) = x0) & Solutions racines (f(x0) = 0)
-### Méthode bisection, sur un interval [a,b]
+## Systèmes d’équations non linéaires : Points fixes (f(x0) = x0) & Solutions racines (f(x0) = 0) <a name="eqnoline"></a>
+### Méthode bisection, sur un interval [a,b] <a name="bisect"></a>
 
 Pour une fonction f,
 ```Matlab
 bisect ('f',a,b)
 ```
 
-### Méthode Newton : une ou plusieurs variables; avec des valeurs initiales; utilise le jacobien
+### Méthode Newton : une ou plusieurs variables; avec des valeurs initiales; utilise le jacobien <a name="newton"></a>
 
 Pour une fonction f à 2 variables, avec des valeurs initiales respectives x1 et x2 
 ```Matlab
 newton('f',[x1;x2])
 ```
 
-### Méthode Quasi-Newton : utilise une approximation du jacobien
+### Méthode Quasi-Newton : utilise une approximation du jacobien <a name="quasinewton"></a>
 - Secant Method : une variable
 	
 	Broyden Method : plusieurs variables; utilise une valeur initiale pour la racine, et une autre pour le Jacobien
@@ -49,14 +72,14 @@ newton('f',[x1;x2])
 	
 	>**Note :** Pour ces méthodes, on peut ajouter une backstepping routine, pour éviter les divergences
 
-### Méthodes exclusives pour Point-fixes
+### Méthodes exclusives pour Point-fixes <a name="exclu"></a>
 Méthode Itération de fonction, pour une valeur initiale x0
 Pour une fonction g, 
 ```Matlab
 fixpoint('g',x0)
 ```
 
-### Complementary Method : utilise le jacobien
+### Complementary Method : utilise le jacobien <a name="complem"></a>
 Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 
 - Méthode semismooth
@@ -73,8 +96,8 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 	optset('ncpsolve','type','minmax')
 	```
 
-## Problèmes d’optimisation (recherche du maximum et du minimum)
-### Méthodes sans dérivées :
+## Problèmes d’optimisation (recherche du maximum et du minimum) <a name="optm"></a>
+### Méthodes sans dérivées : <a name="noderiv"></a>
 - Method Golden Search : une variable; optimum local sur un interval [a,b]
 	
 	Pour une fonction f, sur un interval [a,b]
@@ -89,8 +112,8 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 	neldmead('f',[x1;x2])
 	```
 
-## Méthode d’intégration et de différentiation
-### Méthode d’intégration
+## Méthode d’intégration et de différentiation <a name="intdiff"></a>
+### Méthode d’intégration <a name="int"></a>
 
 - Calcul de l'aire
 
@@ -145,7 +168,7 @@ Pour résoudre f(x) = 0, pour *8a < x < b* ;  a et b peuvent être Inf
 	Somme(w*f(x))
 	```
  
-### Méthode de différentiation
+### Méthode de différentiation <a name="diff"></a>
 
 Pour une fonction *f*, une approximation *O(h²)* de sa dérivée, autour du point *x0*, est de la forme:
 ><img src="http://latex.codecogs.com/gif.latex?af(x_0)&space;+&space;bf(x_0+h)&space;+&space;cf(x_0&space;+&space;\alphah)&space;[+O(h^2)]" vertical-align="middle"/>
@@ -159,7 +182,7 @@ b + cλ = 1/h
 b + cλ2 = 0
 ```
 
-## Initial Value Problem (IVP)
+## Initial Value Problem (IVP) <a name="ivp"></a>
 Prend la forme d’une equation différentielle à résoudre pour une function solution, connaissant les valeurs initiales pour la fonction.
 
 >e.g. à l’ordre 1  <img src="http://latex.codecogs.com/gif.latex?y'(t)&space;=&space;f(t,y(t))" vertical-align="middle"/>
@@ -218,7 +241,7 @@ Pour un système d’équation différentiel « _system_ », une période alla
 sol1 := numeric::odesolve2(f, t0, Y0, RK4, Stepsize=h)
 ```
 
-## Boundary Value Problem
+## Boundary Value Problem <a name="bvp"></a>
 Il s’agit d’un boundary value problem quand on ne connait pas les valeurs initiales, pour la fonction. Il est souvent donné une boundary condition, comme par exemple la valeur terminale pour la fonction <img src="https://latex.codecogs.com/gif.latex?y_T" vertical-align="middle"/>.
 
 On cherche un guess <img src="https://latex.codecogs.com/gif.latex?y_0" vertical-align="middle"/> pour la valeur initiale pour la fonction, tel que :
@@ -243,7 +266,7 @@ puis,
 y0 = broyden('shooting',guess);
 ```
 
-## Interpolation
+## Interpolation <a name="interpol"></a>
 
 Il s’agit de trouver une approximation <img src="https://latex.codecogs.com/gif.latex?\hat{f}" vertical-align="middle"/> aussi précise que possible d’une fonction <img src="https://latex.codecogs.com/gif.latex?f" vertical-align="middle"/>.
 
@@ -288,7 +311,7 @@ c = phi(nodes) \ v ;
 fhat = funeval(c,phi,x);
 ```
 
-## Méthode Collocation
+## Méthode Collocation <a name="colloc"></a>
 Il s’agit d’une méthode pour trouver la fonction f solution d'un problème du type :
 
 <img src="https://latex.codecogs.com/gif.latex?g(x,f(x))=0" vertical-align="middle"/>,
@@ -314,7 +337,7 @@ Pour un système d’équation « _system_ »,
 c = broyden('system',guess);
 ```
 
-## Programmation Dynamique
+## Programmation Dynamique <a name="progdyn"></a>
 
 Soient _**N**_ périodes <img src="https://latex.codecogs.com/gif.latex?t=1,...,N" vertical-align="middle"/> ; l’horizon _**N**_ pouvant être fini ou infini. On peut observer à chaque période, plusieurs états <img src="https://latex.codecogs.com/gif.latex?s" vertical-align="middle"/> possibles ; l’espace des états peut être discret ou continu.
 
@@ -324,7 +347,7 @@ Pour chaque état, il y a un ensemble d’actions disponibles <img src="https://
 
 <img src="https://latex.codecogs.com/gif.latex?X=\left&space;\{&space;x_1,x_2,x_3,x_4,...\right&space;\}" vertical-align="middle"/>
 
-### Discrete state space, Discrete action space
+### Discrete state space, Discrete action space <a name="dss_das"></a>
 * Horizons finis
 
 À chaque période _**t**_, l’action _**x**_ dans l’état _**s**_ produit le reward f(x,s). _**S**_ est un processus, soit déterministe, soit stochastique.
@@ -394,7 +417,7 @@ Ensuite on recherche la solution <img src="https://latex.codecogs.com/gif.latex?
 	* Reward function (based on Action space)
 	* Transition probability matrix (m x n x n)
 
-### Continuous state space
+### Continuous state space <a name="csp"></a>
 Pour un <strong>continuous state space</strong> _**S**_, le next _state_ est une fonction continue du _current state_, du _current action_ et d’un terme d’erreur (déterministe ou stochastique) : 
 
 <img src="https://latex.codecogs.com/gif.latex?S'&space;=&space;g(S,X,\epsilon)" vertical-align="middle"/>
@@ -472,7 +495,7 @@ end
 funeval(c,basis,p) = v
 ```
 
-### Continuous action space
+### Continuous action space <a name="cas"></a>
 _**X**_ est une fonction du state _**S**_. L’équation du problème devient : 
 
 <img src="http://latex.codecogs.com/gif.latex?V(S)&space;=&space;max\left\(&space;f(S,X(S))&space;+&space;\delta&space;E(V(S,X(S),\epsilon))\right\)" vertical-align="middle"/>
