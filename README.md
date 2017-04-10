@@ -51,6 +51,7 @@ Bonne lecture !!
 	
 	[Continuous action space](#cas)
 
+<hr>
 
 
 
